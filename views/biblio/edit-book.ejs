@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('../partials/head', {title: "Редагування книги"}); %>
+   <body>
+      <div class="contain">
+         <%- include('../partials/biblio/nav'); %>
+         <div class="main">
+            <h1 style="float:left">Редагування книги</h1>
+            <p id="toolbuttons" style="float:right; padding-top:20px;"><a class="reloadbutton" hidden="true" href="#">Оновити</a><a class="addbutton" hidden="true" href="#">Додати користувача</a><a class="editbutton" hidden="true" href="#">Редагуваги</a><a class="remotebutton" hidden="true" href="#">Видалити</a></p>
+            <div style="clear:both"></div>
+            <div style="overflow-x:auto;">
+            <form action="" method="post" encType="multipart/form-data">
+               <div class="first4">
+                    <h3>Назва: </h3>
+                    <h3>Автор:</h3>
+                    <h3>Розділ:</h3>
+                    <h3>Рік:</h3>
+                    <h3>К-ть книг:</h3>
+                    <h3>Логотип:</h3>
+                    <h3>Опис книги:</h3>
+               </div>
+               <div class="second4">
+                    <h3><input name="name" type="text" value="<%= book.name %>"></h3>
+                    <h3><select name="author_id">
+                    <% for(var key in authors) { %>
+                        <option value="<%= authors[key].id %>" <% if (authors[key].id === book.author_id) { %>selected="selected" <% } %> ><%= authors[key].first_name %> <%= authors[key].last_name %></option>
+                    <% } %>
+                      </select></h3>
+                  <h3><select name="section_id" >
+                        <% for(var key in sections) { %>
+                            <option value="<%= sections[key].id %>" <% if (sections[key].id === book.section_id) { %>selected="selected" <% } %> ><%= sections[key].name %></option>
+                        <% } %>
+                      </select></h3>
+                  <h3><input name="year" type="text" value="<%= book.year %>"></h3>
+                  <h3><input name="count" type="text" value="<%= book.count %>"></h3>
+                  <h3><span style="font-size: 16px">Логотип завантажено</span> <a href="#" id="change_logo" ><span style="font-size: 16px" class="statcount">Змінити</span></a></h3>
+                  <h3><textarea rows="10" name="desc" cols="50"><%= book.desc %></textarea></h3>
+                  <button onclick="mess()" class="button-submit button1">Зберегти</button>
+                  <h4 id="mess" style="display: none;">Збережено</h4>
+               </div>
+               <div style="clear:both"></div>
+            </form>
+            </div>
+         </div>
+         <%- include('../partials/footer'); %>
+      </div>
+      <%- include('../partials/scripts'); %>
+   </body>
+</html>

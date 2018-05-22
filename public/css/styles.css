@@ -1,0 +1,578 @@
+/*body{
+    padding: 0;
+    margin: 0;
+}
+.container {
+    margin: 0 auto;
+width: 1000px;
+
+}
+
+.logo {
+  float: left;
+}
+/* ~~ Top Navigation Bar ~~ */
+/*
+#navigation-container {
+  width: 1000px;
+  margin: 0 auto;
+  height: 70px;
+}
+
+.navigation-bar {
+  background-color: #f3f3f3;
+  height: 70px;
+  width: 100%;
+  text-align:center;
+}
+.navigation-bar img{
+float:left;
+}
+.navigation-bar ul {
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  display:inline-block;
+  vertical-align:top;
+}
+
+.navigation-bar li {
+  list-style-type: none;
+  padding: 0px;
+  height: 24px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  display: inline;
+}
+
+.navigation-bar li a {
+  color: black;
+  font-size: 16px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  line-height: 70px;
+  padding: 5px 15px;
+  opacity: 0.7;
+}
+
+#menu {
+  float: right;
+}
+*/
+ 
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #88CDEA;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #7abad6;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #88CDEA;
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
+}
+
+.form .error {
+    color: red;
+}
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.container:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.container .info {
+  margin: 50px auto;
+  text-align: center;
+}
+.container .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+.container .info span {
+  color: #4d4d4d;
+  font-size: 12px;
+}
+.container .info span a {
+  color: #000000;
+  text-decoration: none;
+}
+.container .info span .fa {
+  color: #EF3B3A;
+}
+body {
+    padding: 0;
+    margin: 0;
+  background: #88CDEA; /* fallback for old browsers */
+  
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
+}
+
+#logoenter {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 48px;
+}
+
+.toolmenu{
+    margin:0px;
+    padding: 0px;
+}
+
+.toolmenu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+.toolmenu li {
+    float: left;
+}
+
+.toolmenu li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.toolmenu li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.toolmenu li a.active {
+    color: white;
+    background-color: #7abad6;
+}
+
+.contain {
+    margin: 0 auto;
+width: 1000px;
+    background: white;
+    min-height:100vh;
+    position: relative;
+
+}
+
+.main{
+    padding: 20px;
+    padding-bottom: 100px;
+
+}
+
+.main table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.main th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+.main tr:nth-child(even){background-color: #f2f2f2}
+
+.main th {
+    background-color: #7abad6;
+    color: white;
+}
+a{
+text-decoration: none;
+color: #7abad6;
+}
+
+a:hover{
+   color: #4f89a3;
+}
+
+#toolbuttons a{
+    font-weight: 700;
+    padding-left: 15px;
+}
+
+.stat-container {
+    overflow:hidden;
+border: 1px solid #000;
+padding: 10px;
+    border-radius: 20px;
+}
+
+
+.quick-container {
+    overflow:hidden;
+padding: 10px;
+
+}
+
+.first {
+  width: 50%;
+    float: left;
+
+}
+
+.second {
+  width: 50%;
+    float: left;
+    
+}
+
+
+.first2 {
+  width: 30%;
+    float: left;
+
+}
+
+.second2 {
+  width: 70%;
+    float: left;
+    
+}
+
+.first3 {
+  width: 30%;
+    float: left;
+
+}
+
+.second3 {
+  width: 40%;
+    float: left;
+    
+}
+
+.third3 {
+      width: 27%;
+    margin-right: 3%;
+    float: left;
+}
+
+.third3 img{
+    width: 100%;
+}
+
+.first4 {
+  width: 30%;
+    float: left;
+
+}
+
+.second4 {
+  width: 57%;
+    float: left;
+    
+}
+
+.second4 input {
+  width: 75%;
+
+}
+
+.second4 textarea{
+  width: 75%;
+    
+}
+
+.second4 select{
+    height:24px;
+        line-height:24px;
+  width: 75.7%;
+    
+}
+
+.second4 h3{
+-webkit-margin-before: 0.95em;
+    -webkit-margin-after: 0.95em;
+
+    
+}
+
+.statcount{
+    color: #7abad6;
+    font-weight: 700;
+}
+
+.button-quick {
+    /*background-color: #7abad6;*/
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 90%;
+    height: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 28px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+
+
+.button1 {
+    background-color: #7abad6; 
+     
+}
+
+.button1:hover {
+    background-color: #4f89a3;
+}
+
+.footer {
+    padding-bottom: -200px;
+    background: #333;
+    height: 60px;
+    line-height: 60px;
+    position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+ color: darkgrey;
+  text-align: center;
+}
+
+
+
+  .button-submit {
+    /*background-color: #7abad6;*/
+    border: none;
+    color: white;
+    padding: 6px 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+
+    height: 50px;
+    font-size: 16px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}  
+
+
+
+
+
+.topbooks {
+
+    overflow:hidden;
+border: 1px solid #000;
+padding: 10px;
+    border-radius: 20px;
+}
+
+.top1 {
+  width: 19%;
+    margin-right: 1.25%;
+    float: left;
+}
+
+.top1 img{
+    width: 100%;
+}
+
+.top2 {
+  width: 19%;
+    margin-right: 1.25%;
+    float: left;
+}
+
+.top2 img{
+    width: 100%;
+}
+
+.top3 {
+        width: 19%;
+    margin-right: 1.25%;
+    float: left;
+}
+
+.top3 img{
+    width: 100%;
+}
+
+.top4 {
+        width: 19%;
+    margin-right: 1.25%;
+    float: left;
+}
+
+.top4 img{
+    width: 100%;
+}
+
+.top5 {
+      width: 19%; 
+    float: left;
+}
+
+.top5 img{
+    width: 100%;
+}
+
+.sidebar{
+    width: 22%;
+    float:left;
+}
+
+.sidebar h3{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.sidebar h3 a{
+    color: #333;
+}
+
+.sidebar h3 a:hover{
+    color: #7abad6;
+}
+
+.main2 {
+    width: 76%;
+    float: left;
+    padding-left: 10px;
+}
+
+.book-container {
+    overflow:hidden;
+border: 1px solid #000;
+padding: 5px;
+    border-radius: 5px;
+    width: 46%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 10px;
+    float:left;
+}
+
+
+.imgbook {
+    width: 48%;
+    margin-right: 2%;
+    float: left;
+
+}
+.imgbook img{
+    width: 100%;
+    height: 235px;
+}
+
+
+.descbook {
+  width: 50%;
+    float: left;  
+}
+
+.descbook h3{
+margin-top: 0px;
+}
+.descbook h4{
+margin-top: 2px;
+margin-bottom: 2px;
+}
+
+.button-view-book {
+    /*background-color: #7abad6;*/
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    height: 25px;
+    margin-top: 7px;
+    margin-bottom: 2px;
+    border-radius: 5px;
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+
+.icon {
+    font-family: FontAwesome;
+}
+
+td a{
+    color: #333;
+}
+
+td a:hover{
+    color: #7abad6;
+}
+
+#mess {
+    color: #7abad6;
+    
+}

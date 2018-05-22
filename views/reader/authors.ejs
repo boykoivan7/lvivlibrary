@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('../partials/head', {title: "Автори"}); %>
+   <body>
+      <div class="contain">
+         <%- include('../partials/reader/nav'); %>
+         <div class="main">
+            <div class="sidebar">
+               <h2 style="text-align: center; font-size: 28px; ">Розділи</h2>
+               <% if (data.sections !== null) { %>
+               <% for(var key in data.sections) { %>
+               <h3><a href="/sections/<%= data.sections[key].id %>"><%= data.sections[key].name %></a></h3>
+               <% }%>
+               <% } else { %>
+               <p>Немає розділів</p>
+               <% }%>
+            </div>
+            <div class="main2">
+               <% if (data.authors.length !== 0) { %>
+               <h2 style="text-align: center; font-size: 28px">Автори</h2>
+               <table>
+                  <tr>
+                     <th>Автор</th>
+                     <th>К-ть книг</th>
+                  </tr>
+                  <% for(var key in data.authors) { %>
+                  <tr>
+                     <td><a href="/authors/<%= data.authors[key].id %>"><%= data.authors[key].first_name %> <%= data.authors[key].last_name %></a></td>
+                     <td><%= data.authors[key].count %></td>
+                  </tr>
+                  <% } %>
+               </table>
+               <% } else { %>
+               <p>Немає авторів</p>
+               <% } %>
+            </div>
+            <div style="clear:both"></div>
+         </div>
+         <%- include('../partials/footer'); %>
+      </div>
+      <%- include('../partials/scripts'); %>
+   </body>
+</html>

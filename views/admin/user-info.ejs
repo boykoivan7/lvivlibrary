@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('../partials/head', {title: "Мій аккаунт"}); %>
+   <body>
+      <div class="contain">
+         <%- include('../partials/admin/nav'); %>
+         <div class="main">
+            <h1 style="float:left">Інформація про користувача</h1>
+            <p id="toolbuttons" style="float:right; padding-top:20px;"><a class="reloadbutton" href="#">Оновити</a><a class="addbutton" hidden="true" href="#">Додати користувача</a><a class="editbutton" href="#">Редагуваги</a><a class="remotebutton" href="#">Видалити</a></p>
+            <div style="clear:both"></div>
+            <div style="overflow-x:auto;">
+               <div class="first2">
+                  <h3>Прізвище: </h3>
+                  <h3>Ім'я:</h3>
+                  <h3>По батькові:</h3>
+                  <h3>Дата народження:</h3>
+                  <h3>Електронна пошта:</h3>
+                  <h3>Номер телефону:</h3>
+                  <h3>Місто:</h3>
+                  <h3>Адреса:</h3>
+                  <h3>Дата реєстрації:</h3>
+                  <h3>Роль:</h3>
+               </div>
+               <div class="second2">
+                  <h3><span class="statcount"><%= data.last_name %></span></h3>
+                  <h3><span class="statcount"><%= data.first_name %></span></h3>
+                  <h3><span class="statcount"><%= data.father_name %></span></h3>
+                  <h3><span class="statcount"><%= data.date_birth %></span></h3>
+                  <h3><span class="statcount"><%= data.email %></span></h3>
+                  <h3><span class="statcount"><%= data.phone_number %></span></h3>
+                  <h3><span class="statcount"><%= data.city %></span></h3>
+                  <h3><span class="statcount"><%= data.address %></span></h3>
+                  <h3><span class="statcount"><%= data.date_reg %></span></h3>
+                  <h3><span class="statcount"><%= data.role %></span></h3>
+               </div>
+               <div style="clear:both"></div>
+            </div>
+         </div>
+         <%- include('../partials/footer'); %>
+      </div>
+      <%- include('../partials/scripts'); %>
+   </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('../partials/head', {title: "Інформація про книгу"}); %>
+   <body>
+      <div class="contain">
+         <%- include('../partials/reader/nav'); %>
+         <div class="main">
+            <div class="sidebar">
+               <h2 style="text-align: center; font-size: 28px; ">Розділи</h2>
+               <% if (data.sections !== null) { %>
+               <% for(var key in data.sections) { %>
+               <h3><a href="/sections/<%= data.sections[key].id %>"><%= data.sections[key].name %></a></h3>
+               <% }%>
+               <% } else { %>
+               <p>Немає розділів</p>
+               <% }%>
+            </div>
+            <div class="main2">
+               <h2 style="text-align: center; font-size: 28px; ">Інформація про книгу<span style="float:right"><button class="button-view-book button1" onclick="change_icon(this,'<%= data.dataBook.id %>');" ><% if (data.dataBook.isFavourite) { %><i class="fa fa-heart" aria-hidden="true"><% } else  { %><i class="fa fa-heart-o" aria-hidden="true"></i><% } %></i></button></span></h2>
+               <div style="overflow-x:auto;">
+                  <div class="third3">
+                     <img src="<%= data.dataBook.logo %>" >
+                  </div>
+                  <div class="first3">
+                     <h3>Назва: </h3>
+                     <h3>Автор:</h3>
+                     <h3>Розділ:</h3>
+                     <h3>Рік: </h3>
+                     <h3>К-ть книг доступно:</h3>
+                     <h3>Додано в "Список бажань":</h3>
+                     <!--<button class="button-view-book button1"><i class="fa fa-heart-o" aria-hidden="true"></i></button>-->
+                  </div>
+                  <div class="second3">
+                     <h3><span class="statcount"><%= data.dataBook.name %></span></h3>
+                     <h3><span class="statcount"><%= data.dataBook.author_first_name %> <%= data.dataBook.author_last_name %></span></h3>
+                     <h3><span class="statcount"><%= data.dataBook.section_name %>а</span></h3>
+                     <h3><span class="statcount"><%= data.dataBook.year %></span></h3>
+                     <h3><span class="statcount"><%= data.dataBook.count_av %></span></h3>
+                     <h3><span class="statcount"><%= data.dataBook.count_fav %></span></h3>
+                  </div>
+                  <div style="clear:both"></div>
+                  <h3><%= data.dataBook.desc %></h3>
+               </div>
+            </div>
+            <div style="clear:both"></div>
+    
+         </div>
+         <div style="clear:both"></div>
+      </div>
+      <%- include('../partials/footer'); %>
+      </div>
+      <%- include('../partials/scripts'); %>
+   </body>
+</html>

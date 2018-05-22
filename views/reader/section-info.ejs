@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('../partials/head', {title: "Розділ: "+name}); %>
+   <body>
+      <div class="contain">
+         <%- include('../partials/reader/nav'); %>
+         <div class="main">
+            <div class="sidebar">
+               <h2 style="text-align: center; font-size: 28px; ">Розділи</h2>
+               <% if (data.sections !== null) { %>
+                <% for(var key in data.sections) { %>
+               <h3><a href="/sections/<%= data.sections[key].id %>"><%= data.sections[key].name %></a></h3>
+               <% }%>
+               <% } else { %>
+                <p>Немає розділів</p>
+                <% }%>
+            </div>
+
+            <div class="main2">
+            <h2 style="text-align: center; font-size: 28px"><%= name %></h2>
+            <% if (data.dataBooks.length !== 0) { %>
+               <% for(var key in data.dataBooks) { %>
+                    <div class="book-container">
+                        <div class="imgbook">
+                            <img src="<%= data.dataBooks[key].logo %>" >
+                        </div>
+                        <div class="descbook">
+                            <h3><span class="statcount"><%= data.dataBooks[key].name %></span></h3>
+                            <h4>Автор: <span class="statcount"><%= data.dataBooks[key].author_first_name %> <%= data.dataBooks[key].author_last_name %></span></h4>
+                            <h4>Розділ: <span class="statcount"><%= data.dataBooks[key].section_name %></span></h4>
+                            <h4>Рік: <span class="statcount"><%= data.dataBooks[key].year %></span></h4>
+                            <input class="button-view-book button1" type="button" onclick="location.href='/books/<%= data.dataBooks[key].id %>';" value="Детальніше" />
+                            <button class="button-view-book button1" onclick="change_icon(this,'<%= data.dataBooks[key].id %>');" ><% if (data.dataBooks[key].isFavourite) { %><i class="fa fa-heart" aria-hidden="true"><% } else  { %><i class="fa fa-heart-o" aria-hidden="true"></i><% } %></i></button>
+                        </div>
+                    </div>
+                <% } %>
+               <div style="clear:both"></div>
+            <% } else { %>
+                <p>Немає книг</p>
+            <% } %>
+            </div>
+            <div style="clear:both"></div>
+         </div>
+         <%- include('../partials/footer'); %>
+      </div>
+      <%- include('../partials/scripts'); %>
+   </body>
+</html>

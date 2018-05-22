@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('../partials/head', {title: "Замовлення"}); %>
+   <body>
+      <div class="contain">
+         <%- include('../partials/reader/nav'); %>
+         <div class="main">
+            <h1 style="float:left">Замовлення</h1>
+            <p id="toolbuttons" style="float:right; padding-top:20px;"><a class="reloadbutton" hidden="true" href="#">Оновити</a><a class="addbutton" hidden="true" href="#">Додати користувача</a><a class="editbutton" hidden="true" href="chy-edit-account.html">Редагуваги</a></p>
+            <div style="clear:both"></div>
+            <p style="text-align: center"><i class="fa fa-circle" style="color: #d0e6ef" aria-hidden="true"></i> - повернені; <i class="fa fa-circle" style="color: #f2f2f2" aria-hidden="true"></i> - зараз у мене; <i class="fa fa-circle" style="color: red" aria-hidden="true"></i> - заборговані;</p>
+            <div class="maincont" style="overflow-x:auto;">
+                <% if (data !== null) { %>
+                <table>
+                    <tr>
+                            <th>Книга</th>
+                            <th>Автор</th>
+                            <th>Дата видачі</th>
+                            <th>Дата повернення</th>
+                    </tr>
+                    <% for(var key in data) { %>
+                            <tr style='background-color: <%= data[key].statusColor %>'>
+                            <td><a href="/books/<%= data[key].book_id %>"><%= data[key].book_name %></a></td>
+                            <td><a href="/users/<%= data[key].author_id %>"><%= data[key].author_first_name %> <%= data[key].author_last_name %></a></td>
+                            <td><%= data[key].date_giv %></td>
+                            <td><%= data[key].date_ret %></td>
+                        </tr>
+                    <% } %>
+                    </table>
+                <% } else { %>
+                    <p>Немає замовлень</p>
+                <% } %>
+                </div>
+            </div>
+         <%- include('../partials/footer'); %>
+      </div>
+      <%- include('../partials/scripts'); %>
+   </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('../partials/head', {title: "Видача книги"}); %>
+   <body>
+      <div class="contain">
+         <%- include('../partials/biblio/nav'); %>
+         <div class="main">
+            <h1 style="float:left">Видача книги</h1>
+            <p id="toolbuttons" style="float:right; padding-top:20px;"><a class="reloadbutton" hidden="true" href="#">Оновити</a><a class="addbutton" hidden="true" href="#">Додати користувача</a><a class="editbutton" hidden="true" href="#">Редагуваги</a><a class="remotebutton" hidden="true" href="#">Видалити</a></p>
+            <div style="clear:both"></div>
+            <div style="overflow-x:auto;">
+               <form action="" method="post">
+                  <div class="first4">
+                     <h3>Книга:</h3>
+                     <h3>Читач</h3>
+                  </div>
+                  <div class="second4">
+                     <h3>
+                        <select name="book_id" >
+                        <% for(var key in books) { %>
+                            <option value="<%= books[key].id %>"><%= books[key].name %></option>
+                        <% } %>
+                        </select>
+                     </h3>
+                     <h3>
+                        <select name="user_id" >
+                        <% for(var key in users) { %>
+                            <option value="<%= users[key].id %>"><%= users[key].first_name %> <%= users[key].last_name %></option>
+                        <% } %>
+                        </select>
+                     </h3>
+                     <button onclick="mess()" class="button-submit button1">Видати книгу</button>
+                     <h4 id="mess" style="display: none;">Книгу видано</h4>
+                  </div>
+                  <div style="clear:both"></div>
+               </form>
+            </div>
+         </div>
+         <%- include('../partials/footer'); %>
+      </div>
+      <%- include('../partials/scripts'); %>
+   </body>
+</html>

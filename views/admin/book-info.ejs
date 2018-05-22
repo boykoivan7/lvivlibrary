@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('../partials/head', {title: "Інформація про книгу"}); %>
+   <body>
+      <div class="contain">
+         <%- include('../partials/admin/nav'); %>
+         <div class="main">
+            <h1 class="titlemain" style="float:left">Інформація про книгу</h1>
+            <p id="toolbuttons" style="float:right; padding-top:20px;"><a class="reloadbutton" href="#">Оновити</a></p>
+            <div style="clear:both"></div>
+            <div class="maincont" style="overflow-x:auto;">
+               <div class="third3">
+                  <img src="<%= data.logo %>" >
+               </div>
+               <div class="first3">
+                  <h3>Назва: </h3>
+                  <h3>Автор:</h3>
+                  <h3>Розділ:</h3>
+                  <h3>Рік:</h3>
+                  <h3>К-ть книг:</h3>
+                  <h3>К-ть книг доступно:</h3>
+                  <h3>К-ть книг взяли:</h3>
+                  <h3>Додано в "Список бажань":</h3>
+               </div>
+               <div class="second3">
+                  <h3><span class="statcount"><%= data.name %></span></h3>
+                  <h3><span class="statcount"><%= data.author_first_name %> <%= data.author_last_name %></span></h3>
+                  <h3><span class="statcount"><%= data.section_name %></span></h3>
+                  <h3><span class="statcount"><%= data.year %></span></h3>
+                  <h3><span class="statcount"><%= data.count %></span></h3>
+                  <h3><span class="statcount"><%= data.count_av %></span></h3>
+                  <h3><span class="statcount"><%= data.count_giv %></span></h3>
+                  <h3><span class="statcount"><%= data.count_fav %></span></h3>
+               </div>
+               <div style="clear:both"></div>
+               <h3><%= data.desc %></h3>
+            </div>
+         </div>
+         <%- include('../partials/footer'); %>
+      </div>
+      <%- include('../partials/scripts'); %>
+   </body>
+</html>

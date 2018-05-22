@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('../partials/head', {title: "Розділи"}); %>
+   <body>
+      <div class="contain">
+         <%- include('../partials/biblio/nav'); %>
+         <div class="main">
+            <p id="toolbuttons" style="float:right; padding-top:20px;"><a class="reloadbutton" href="#">Оновити</a><a class="addbutton" href="#">Додати розділ</a></p>
+      <div style="clear:both"></div>
+            <div style="clear:both"></div>
+            <div class="maincont" style="overflow-x:auto;">
+                <% if (data !== null) { %>
+               <table>
+                  <tr>
+                     <th>Назва</th>
+                     <th>К-ть книг</th>
+                     <th width="15%" valign="top" colspan="3">Дії</th>
+                  </tr>
+                  <% for(var key in data) { %>
+                  <tr>
+                     <td><a href="/sections/<%= data[key].id %>"><%= data[key].name %></a></td>
+                     <td><%= data[key].count %></td>
+                     <td width="5%" valign="top"><a href="/sections/<%= data[key].id %>"><i class="fa fa-id-card-o" aria-hidden="true"></i></a></td>
+                     <td width="5%" valign="top"><a href="/sections/<%= data[key].id %>/edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+                     <td width="5%" valign="top"><a href="/sections/<%= data[key].id %>/delete"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                  </tr>
+                  <% } %>
+                </table>
+            <% } else { %>
+                <p>Немає розділів</p>
+            <% } %>
+            </div>
+         </div>
+         <%- include('../partials/footer'); %>
+      </div>
+      <%- include('../partials/scripts'); %>
+   </body>
+</html>

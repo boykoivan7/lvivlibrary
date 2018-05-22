@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('../partials/head', {title: "Додавання читача"}); %>
+   <body>
+      <div class="contain">
+         <%- include('../partials/biblio/nav'); %>
+         <div class="main">
+            <h1 style="float:left">Додавання книги</h1>
+            <p id="toolbuttons" style="float:right; padding-top:20px;"><a class="reloadbutton" hidden="true" href="#">Оновити</a><a class="addbutton" hidden="true" href="#">Додати користувача</a><a class="editbutton" hidden="true" href="#">Редагуваги</a><a class="remotebutton" hidden="true" href="#">Видалити</a></p>
+            <div style="clear:both"></div>
+            <div style="overflow-x:auto;">
+            <% if (sections !== null && authors !== null) { %>
+               <form action="" method="post" encType="multipart/form-data">
+                  <div class="first4">
+                     <h3>Назва: </h3>
+                     <h3>Автор:</h3>
+                     <h3>Розділ:</h3>
+                     <h3>Рік:</h3>
+                     <h3>К-ть книг:</h3>
+                     <h3>Логотип:</h3>
+                     <h3>Опис книги:</h3>
+                  </div>
+                  <div class="second4">
+                     <h3><input name="name" type="text"></h3>
+                     <h3>
+                        <select name="author_id">
+                        <% for(var key in authors) { %>
+                           <option value="<%= authors[key].id %>"><%= authors[key].first_name %> <%= authors[key].last_name %></option>
+                        <% } %>
+                        </select>
+                     </h3>
+                     <h3>
+                        <select name="section_id">
+                        <% for(var key in sections) { %>
+                           <option value="<%= sections[key].id %>"><%= sections[key].name %></option>
+                        <% } %>
+                        </select>
+                     </h3>
+                     <h3><input name="year" type="text"></h3>
+                     <h3><input name="count" type="text"></h3>
+                     <h3><input type="file" name="logo"></h3>
+                     <h3><textarea name="desc" rows="10" cols="50"></textarea></h3>
+                     <button onclick="mess()" class="button-submit button1">Додати книгу</button>
+                     <h4 id="mess" style="display: none;">Книгу додано</h4>
+                  </div>
+                  <div style="clear:both"></div>
+               </form>
+            <% } else { %>
+                <p>Додайте спочатку автора і розділ</p>
+            <% } %>
+            </div>
+         </div>
+         <%- include('../partials/footer'); %>
+      </div>
+      <%- include('../partials/scripts'); %>
+   </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('../partials/head', {title: "Розділи"}); %>
+   <body>
+      <div class="contain">
+         <%- include('../partials/admin/nav'); %>
+         <div class="main">
+            <h1 class="titlemain" style="float:left">Розділи</h1>
+            <p id="toolbuttons" style="float:right; padding-top:20px;"><a class="reloadbutton" href="#">Оновити</a><a class="addbutton" hidden="true" href="#">Додати книгу</a></p>
+            <div style="clear:both"></div>
+            <div class="maincont" style="overflow-x:auto;">
+                <% if (data !== null) { %>
+               <table>
+                  <tr>
+                     <th>Назва</th>
+                     <th>К-ть книг</th>
+                  </tr>
+                  <% for(var key in data) { %>
+                  <tr>
+                     <td><a href="/sections/<%= data[key].id %>"><%= data[key].name %></a></td>
+                     <td><%= data[key].count %></td>
+                  </tr>
+                  
+                  <% } %>
+                </table>
+            <% } else { %>
+                <p>Немає розділів</p>
+            <% } %>
+            </div>
+         </div>
+         <%- include('../partials/footer'); %>
+      </div>
+      <%- include('../partials/scripts'); %>
+   </body>
+</html>

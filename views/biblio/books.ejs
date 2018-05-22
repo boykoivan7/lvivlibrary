@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('../partials/head', {title: "Книги"}); %>
+   <body>
+      <div class="contain">
+         <%- include('../partials/biblio/nav'); %>
+         <div class="main">
+            <h1 class="titlemain" style="float:left">Книги</h1>
+            <p id="toolbuttons" style="float:right; padding-top:20px;"><a class="reloadbutton" href="#">Оновити</a><a class="addbutton" href="#">Додати книгу</a></p>
+            <div style="clear:both"></div>
+            <div class="maincont" style="overflow-x:auto;">
+                <% if (data !== null) { %>
+               <table>
+                  <tr>
+                     <th>Назва</th>
+                     <th>Автор</th>
+                     <th>Розділ</th>
+                     <th>К-ть було</th>
+                     <th>К-ть доступно</th>
+                     <th>К-ть здано</th>
+                     <th><i class="fa fa-heart" aria-hidden="true"></i></th>
+                     <th width="15%" valign="center" colspan="3">Дії</th>
+                  </tr>
+                  <% for(var key in data) { %>
+                  <tr>
+                     <td><a href="/books/<%= data[key].id %>"><%= data[key].name %></a></td>
+                     <td><a href="/authors/<%= data[key].author_id %>"><%= data[key].author_first_name %> <%= data[key].author_last_name %></a></td>
+                     <td><a href="/sections/<%= data[key].section_id %>"><%= data[key].section_name %></a></td>
+                     <td><%= data[key].count %></td>
+                     <td><%= data[key].count_av %></td>
+                     <td><%= data[key].count_giv %></td>
+                     <td><%= data[key].count_fav %></td>
+                     <td width="5%" valign="top"><a href="/books/<%= data[key].id %>"><i class="fa fa-id-card-o" aria-hidden="true"></i></a></td>
+                     <td width="5%" valign="top"><a href="/books/<%= data[key].id %>/edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+                     <td width="5%" valign="top"><a href="/books/<%= data[key].id %>/delete"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                  </tr>
+                  <% } %>
+                </table>
+            <% } else { %>
+                <p>Немає книг</p>
+            <% } %>
+            </div>
+         </div>
+         <%- include('../partials/footer'); %>
+      </div>
+      <%- include('../partials/scripts'); %>
+   </body>
+</html>

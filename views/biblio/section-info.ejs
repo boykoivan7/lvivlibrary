@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('../partials/head', {title: "Інформація про розділ"}); %>
+   <body>
+      <div class="contain">
+         <%- include('../partials/biblio/nav'); %>
+         <div class="main">
+            <h1 style="float:left">Інформація про розділ</h1>
+            <p id="toolbuttons" style="float:right; padding-top:20px;"><a class="reloadbutton" href="#">Оновити</a><a class="addbutton" hidden="true" href="#">Додати користувача</a><a class="editbutton" href="biblio-edit-rozd.html">Редагуваги</a><a class="remotebutton" href="#">Видалити</a></p>
+            <div style="clear:both"></div>
+            <div style="overflow-x:auto;">
+               <div class="first2">
+                  <h3>Назва: </h3>
+                  <h3>К-ть книг:</h3>
+               </div>
+               <div class="second2">
+                  <h3><span class="statcount"><%= section.name %></span></h3>
+                  <h3><span class="statcount"><%= section.count %></span></h3>
+               </div>
+               <div style="clear:both"></div>
+            </div>
+            <h2 style="text-align: center; font-size: 28px">Список книг</h2>
+            <div class="maincont" style="overflow-x:auto;">
+            <% if (books.length !== 0) { %>
+               <table>
+                  <tr>
+                     <th>Назва</th>
+                     <th>Автор</th>
+                     <th>К-ть було</th>
+                     <th>К-ть доступно</th>
+                     <th>К-ть здано</th>
+                     <th width="15%" valign="top" colspan="3">Дії</th>
+                  </tr>
+                  <% for(var key in books) { %>
+                  <tr>
+                     <td><a href="/books/<%= books[key].id %>"><%= books[key].name %></a></td>
+                     <td><a href="/authors/<%= books[key].author_id %>"><%= books[key].author_first_name %> <%= books[key].author_last_name %></a></td>
+                     <td><%= books[key].count %></td>
+                     <td><%= books[key].count_av %></td>
+                     <td><%= books[key].count_giv %></td>
+                     <td width="5%" valign="top"><a href="/books/<%= books[key].id %>"><i class="fa fa-id-card-o" aria-hidden="true"></i></a></td>
+                     <td width="5%" valign="top"><a href="/books/<%= books[key].id %>/edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+                     <td width="5%" valign="top"><a href="/books/<%= books[key].id %>/delete"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                  </tr>
+                  <% } %>
+               </table>
+               <% } else { %>
+                <p>Немає книг</p>
+            <% } %>
+            </div>
+         </div>
+         <%- include('../partials/footer'); %>
+      </div>
+      <%- include('../partials/scripts'); %>
+   </body>
+</html>

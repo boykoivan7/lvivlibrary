@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('../partials/head', {title: "Список бажань"}); %>
+   <body>
+      <div class="contain">
+         <%- include('../partials/reader/nav'); %>
+         <div class="main">
+            <div class="sidebar">
+               <h2 style="text-align: center; font-size: 28px; ">Розділи</h2>
+               <% if (data.sections !== null) { %>
+                <% for(var key in data.sections) { %>
+               <h3><a href="/sections/<%= data.sections[key].id %>"><%= data.sections[key].name %></a></h3>
+               <% }%>
+               <% } else { %>
+                <p>Немає розділів</p>
+                <% }%>
+            </div>
+
+            <div class="main2">
+                <h2 style="text-align: center; font-size: 28px">Список бажань</h2>
+                <% if (data.newBooks.length !== 0) { %>
+               <% for(var key in data.newBooks) { %>
+                    <div class="book-container">
+                        <div class="imgbook">
+                            <img src="<%= data.newBooks[key].logo %>" >
+                        </div>
+                        <div class="descbook">
+                            <h3><span class="statcount"><%= data.newBooks[key].name %></span></h3>
+                            <h4>Автор: <span class="statcount"><%= data.newBooks[key].author_first_name %> <%= data.newBooks[key].author_last_name %></span></h4>
+                            <h4>Розділ: <span class="statcount"><%= data.newBooks[key].section_name %></span></h4>
+                            <h4>Рік: <span class="statcount"><%= data.newBooks[key].year %></span></h4>
+                            <input class="button-view-book button1" type="button" onclick="location.href='/books/<%= data.newBooks[key].id %>';" value="Детальніше" />
+                            <button class="button-view-book button1" onclick="delete_favourite('<%= data.newBooks[key].id %>');" ><i class="fa fa-heart" aria-hidden="true"></i></i></button>
+                        </div>
+                    </div>
+                <% } %>
+               <div style="clear:both"></div>
+            <% } else { %>
+                <p>Немає книг</p>
+            <% } %>
+            </div>
+            <div style="clear:both"></div>
+         </div>
+         <%- include('../partials/footer'); %>
+      </div>
+      <%- include('../partials/scripts'); %>
+   </body>
+</html>

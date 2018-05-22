@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('../partials/head', {title: "Повернення книги"}); %>
+   <body>
+      <div class="contain">
+         <%- include('../partials/biblio/nav'); %>
+         <div class="main">
+            <h1 style="float:left">Повернення книги</h1>
+            <p id="toolbuttons" style="float:right; padding-top:20px;"><a class="reloadbutton" hidden="true" href="#">Оновити</a><a class="addbutton" hidden="true" href="#">Додати користувача</a><a class="editbutton" hidden="true" href="#">Редагуваги</a><a class="remotebutton" hidden="true" href="#">Видалити</a></p>
+            <div style="clear:both"></div>
+            <div style="overflow-x:auto;">
+            <form action="" method="post">
+               <div class="first4">
+                  <h3>Замовлення:</h3>
+               </div>
+               <div class="second4">
+                  <h3>
+                     <select name="order_id" >
+                        <% for(var key in data) { %>
+                            <option value="<%= data[key].id %>"><%= data[key].book_name %>. <%= data[key].user_first_name %> <%= data[key].user_last_name %></option>
+                        <% } %>
+                     </select>
+                  </h3>
+                  <button onclick="mess()" class="button-submit button1">Повернути книгу</button>
+                  <h4 id="mess" style="display: none;">Книгу повернуто</h4>
+               </div>
+               <div style="clear:both"></div>
+            </form>
+            </div>
+         </div>
+         <%- include('../partials/footer'); %>
+      </div>
+      <%- include('../partials/scripts'); %>
+   </body>
+</html>

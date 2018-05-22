@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('../partials/head', {title: "Редагування аккаунта"}); %>
+   <body>
+      <div class="contain">
+         <%- include('../partials/reader/nav'); %>
+         <div class="main">
+            <h1 style="float:left">Редагування аккаунта</h1>
+            <p id="toolbuttons" style="float:right; padding-top:20px;"><a class="reloadbutton" hidden="true" href="#">Оновити</a><a class="addbutton" hidden="true" href="#">Додати користувача</a><a class="editbutton" hidden="true" href="#">Редагуваги</a><a class="remotebutton" hidden="true" href="#">Видалити</a></p>
+            <div style="clear:both"></div>
+            <div style="overflow-x:auto;">
+                <form action="/account/edit" method="post">
+                <div class="first4">
+                    <h3>Прізвище: </h3>
+                    <h3>Ім'я:</h3>
+                    <h3>По батькові:</h3>
+                    <h3>Дата народження:</h3>
+                    <h3>Електронна пошта:</h3>
+                    <h3>Номер телефону:</h3>
+                    <h3>Місто:</h3>
+                    <h3>Адреса:</h3>
+                </div>
+                <div class="second4">
+                    <h3><input id="second_user" name="last_name" "type="text" value="<%= data.last_name %>"></h3>
+                    <h3><input id="first_user" name="first_name" type="text" value="<%= data.first_name %>"></h3>
+                    <h3><input id="bat_user" name="father_name" type="text" value="<%= data.father_name %>"></h3>
+                    <h3><input id="date_birth_user" name="date_birth" type="date" value="<%= data.date_birth %>"></h3>
+                    <h3><input id="email_user" name="email" type="email" value="<%= data.email %>"></h3>
+                    <h3><input id="phone_user" name="phone_number" type="text" value="<%= data.phone_number %>"></h3>
+                    <h3><input id="city_user" name="city" type="text" value="<%= data.city %>"></h3>
+                    <h3><input id="adress_user" name="address" type="text" value="<%= data.address %>"></h3>
+                    <button onclick="mess()" class="button-submit button1">Зберегти</button>
+                    <h4 id="mess" style="display: none;">Збережено</h4>
+                </div>
+                <div style="clear:both"></div>
+            </form>
+            </div>
+         </div>
+         <%- include('../partials/footer'); %>
+      </div>
+      <%- include('../partials/scripts'); %>
+   </body>
+</html>

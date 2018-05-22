@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head', {title: "Увійти на Lviv Librabry"}); %>
+<body>
+  <div id="logoenter">
+    Lviv Library
+  </div>  
+  <div class="login-page">
+    <div class="form">
+      <form class="register-form">
+        <p>Зверніться в нашу бібіотеку. Бібліотека знаходиться на вулиці</p>
+        <p class="message">Вже зареєстровані? <a href="#">Ввійти</a></p>
+      </form>
+      <form action="/login" method="post" class="login-form">
+        <input type="text" name="email" placeholder="логін"/>
+        <input type="password" name="password" placeholder="пароль"/>
+        <% if (typeof error != 'undefined') { %>
+          <p class="error"><%= error %></p>
+        <% } %>
+
+        <button>ввійти</button>
+        <p class="message">Не зареєстровані? <a href="#">Створити аккаунт</a></p>
+      </form>
+    </div>
+  </div>
+  <%- include('partials/scripts'); %>
+</body>
+</html>

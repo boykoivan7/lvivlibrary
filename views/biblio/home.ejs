@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('../partials/head', {title: "Головна"}); %>
+   <body>
+      <div class="contain">
+         <%- include('../partials/biblio/nav'); %>
+         <div class="main">
+            <h1 style="float:left">Головна</h1>
+            <p id="toolbuttons" style="float:right; padding-top:20px;"><a class="reloadbutton" href="#">Оновити</a><a class="addbutton" hidden="true" href="#">Додати користувача</a></p>
+            <div style="clear:both"></div>
+            <div style="overflow-x:auto;">
+               <h2 style="text-align: center; font-size: 28px">Швидкий доступ</h2>
+               <div class="quick-container">
+                  <div class="first">
+                     <input class="button-quick button1" type="button" onclick="location.href='/giving';" value="Видача книги" />
+                  </div>
+                  <div class="second">
+                     <input class="button-quick button1" type="button" onclick="location.href='/return';" value="Повернення книги" />
+                  </div>
+               </div>
+               <h2 style="text-align: center; font-size: 28px">Статистика</h2>
+               <div class="stat-container">
+                  <div class="first">
+                     <h2>К-ть читачів: <span class="statcount"><%= data.readerCount %></span></h2>
+                     <h2>К-ть розділів: <span class="statcount"><%= data.sectionCount %></span></h2>
+                     <h2>К-ть авторів: <span class="statcount"><%= data.authorCount %></span></h2>
+                  </div>
+                  <div class="second">
+                     <h2>К-ть книг: <span class="statcount"><%= data.bookCount %></span></h2>
+                     <h2>К-ть книг взяли: <span class="statcount"><%= data.orderCountNow %></span></h2>
+                     <h2>К-ть книг заборговано: <span class="statcount"><%= data.orderCountBorg %></span></h2>
+                  </div>
+               </div>
+               <% if (data.top5Books.length !== 0) { %>
+                <h2 style="text-align: center; font-size: 28px">Найпопулярніші книги</h2>
+                <div class="topbooks">
+                 <% for(var key in data.top5Books) { if(key === data.top5Books.length) {break;}%>
+                   <div class="top<%= +key+1 %>">
+                      <a href="/books/<%= data.top5Books[key].id %>"><img  src="<%= data.top5Books[key].logo %>" ></a>
+                   </div>
+                 <% } %>
+                </div>
+                <% } %>
+            </div>
+         </div>
+         <%- include('../partials/footer'); %>
+      </div>
+      <%- include('../partials/scripts'); %>
+   </body>
+</html>

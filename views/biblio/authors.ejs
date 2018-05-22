@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('../partials/head', {title: "Автори"}); %>
+   <body>
+      <div class="contain">
+         <%- include('../partials/biblio/nav'); %>
+         <div class="main">
+            <h1 class="titlemain" style="float:left">Автори</h1>
+            <p id="toolbuttons" style="float:right; padding-top:20px;"><a class="reloadbutton" href="#">Оновити</a><a class="addbutton" href="#">Додати автора</a></p>
+            <div style="clear:both"></div>
+            <div class="maincont" style="overflow-x:auto;">
+            <% if (data !== null) { %>
+               <table>
+                  <tr>
+                     <th>Автор</th>
+                     <th>К-ть книг</th>
+                     <th width="15%" valign="top" colspan="3">Дії</th>
+                  </tr>
+                  <% for(var key in data) { %>
+                  <tr>
+                     <td><a href="/authors/<%= data[key].id %>"><%= data[key].first_name %> <%= data[key].last_name %></a></td>
+                     <td><%= data[key].count %></td>
+                     <td width="5%" valign="top"><a href="/authors/<%= data[key].id %>"><i class="fa fa-id-card-o" aria-hidden="true"></i></a></td>
+                     <td width="5%" valign="top"><a href="/authors/<%= data[key].id %>/edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+                     <td width="5%" valign="top"><a href="/authors/<%= data[key].id %>/delete"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                  </tr>
+                  <% } %>
+                </table>
+            <% } else { %>
+                <p>Немає авторів</p>
+            <% } %>
+            </div>
+         </div>
+         <%- include('../partials/footer'); %>
+      </div>
+      <%- include('../partials/scripts'); %>
+   </body>
+</html>
