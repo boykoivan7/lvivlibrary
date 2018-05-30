@@ -172,16 +172,14 @@ app.get('/dashboard', (req, res) => {
                         var yyyy = +date[0];
                         var mm = +date[1];
                         var dd = +date[2];
-                        otherDate = new Date(yyyy,mm,dd);
+                        otherDate = new Date(yyyy,mm-1,dd);
                         nowDate= new Date();
                         delta= nowDate.getTime()- otherDate.getTime();
                         var dayCount = Math.floor(delta/1000/60/60/24);
                         if(dayCount > 30) {
                             orderCountBorg++;
                         }
-                        else {
-                            orderCountNow++;
-                        }
+                        orderCountNow++;
                     }
                 }
                 var topBooks = [];
@@ -397,16 +395,14 @@ app.get('/users', (req, res) => {
                                     var yyyy = +date[0];
                                     var mm = +date[1];
                                     var dd = +date[2];
-                                    otherDate = new Date(yyyy,mm,dd);
+                                    otherDate = new Date(yyyy,mm-1,dd);
                                     nowDate= new Date();
                                     delta= nowDate.getTime()- otherDate.getTime();
                                     var dayCount = Math.floor(delta/1000/60/60/24);
                                     if(dayCount > 30) {
                                         dataItem.countOrderBorg++;
                                     }
-                                    else {
-                                        dataItem.countOrderNow++;
-                                    }
+                                    dataItem.countOrderNow++;
                                 }
                             }
                             
@@ -1589,7 +1585,7 @@ app.get('/orders', (req, res) => {
                         var yyyy = +date[0];
                         var mm = +date[1];
                         var dd = +date[2];
-                        otherDate = new Date(yyyy,mm,dd);
+                        otherDate = new Date(yyyy,mm-1,dd);
                         nowDate= new Date();
                         delta= nowDate.getTime()- otherDate.getTime();
                         var dayCount = Math.floor(delta/1000/60/60/24);
@@ -1634,7 +1630,7 @@ app.get('/orders', (req, res) => {
                             var yyyy = +date[0];
                             var mm = +date[1];
                             var dd = +date[2];
-                            otherDate = new Date(yyyy,mm,dd);
+                            otherDate = new Date(yyyy,mm-1,dd);
                             nowDate= new Date();
                             delta= nowDate.getTime()- otherDate.getTime();
                             var dayCount = Math.floor(delta/1000/60/60/24);
